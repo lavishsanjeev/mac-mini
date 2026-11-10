@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac mini — Apple</title>
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 170'><path fill='%23ffffff' d='M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.07-7.69-7.85-11.98-14.34-6.3-9.52-11.04-20.2-14.23-32.04-3.18-11.83-4.78-23.2-4.78-34.1 0-14.34 3.65-26.4 10.96-36.17 7.3-9.78 16.59-14.76 27.86-14.96 4.35 0 9.29 1.15 14.83 3.44 5.54 2.3 9.4 3.5 11.58 3.62 1.95 0 5.86-1.28 11.75-3.83 5.88-2.55 10.9-3.74 15.06-3.57 11.49.6 20.89 4.79 28.2 12.56-9.97 6.06-14.84 14.45-14.62 25.17.21 8.5 3.45 15.62 9.72 21.36 6.28 5.75 13.88 9.07 22.82 9.97-2.3 6.9-5.18 14.07-8.63 21.52zM119.22 33.15c0-7.39 2.66-14.28 7.98-20.67 5.32-6.39 12.02-10.55 20.1-12.48.33 1.3.49 2.5.49 3.6 0 7.39-2.74 14.39-8.23 21-5.49 6.6-12.28 10.45-20.34 11.55z'/></svg>">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-in">
+    <div class="nav-brand">
+      <a href="#">
+        <svg width="15" height="40" viewBox="0 0 170 170" fill="#f5f5f7">
+          <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.07-7.69-7.85-11.98-14.34-6.3-9.52-11.04-20.2-14.23-32.04-3.18-11.83-4.78-23.2-4.78-34.1 0-14.34 3.65-26.4 10.96-36.17 7.3-9.78 16.59-14.76 27.86-14.96 4.35 0 9.29 1.15 14.83 3.44 5.54 2.3 9.4 3.5 11.58 3.62 1.95 0 5.86-1.28 11.75-3.83 5.88-2.55 10.9-3.74 15.06-3.57 11.49.6 20.89 4.79 28.2 12.56-9.97 6.06-14.84 14.45-14.62 25.17.21 8.5 3.45 15.62 9.72 21.36 6.28 5.75 13.88 9.07 22.82 9.97-2.3 6.9-5.18 14.07-8.63 21.52zM119.22 33.15c0-7.39 2.66-14.28 7.98-20.67 5.32-6.39 12.02-10.55 20.1-12.48.33 1.3.49 2.5.49 3.6 0 7.39-2.74 14.39-8.23 21-5.49 6.6-12.28 10.45-20.34 11.55z"/>
+        </svg>
+      </a>
+      <span class="nav-name">Mac mini</span>
+      <span class="nav-author-tag"><span class="dot-live"></span> Crafted by Lavish</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#seq-section">Overview</a></li>
+      <li><a href="#studio">3D Studio</a></li>
+      <li><a href="#bento">Performance</a></li>
+      <li><a href="#configure">Configure</a></li>
+      <li><a href="#specs">Tech Specs</a></li>
+    </ul>
+    <div class="nav-acts">
+      <button id="btn-nav-sound" class="snd-btn">
+        <i data-lucide="volume-x" style="width:14px;height:14px"></i>
+        <span class="sound-status">Off</span>
+      </button>
+      <a href="#configure" class="buy-btn">Buy</a>
+    </div>
+  </div>
+</header>
+
+<!-- Progress bar -->
+<div class="prog-track"><div id="scroll-progress" class="prog-bar"></div></div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO: FULL-SCREEN SCROLL-DRIVEN IMAGE SEQUENCE
+     The canvas is position:fixed, covers the entire viewport.
+     As you scroll, the Mac mini teardown plays frame-by-frame.
+     ═══════════════════════════════════════════════ -->
+<section id="seq-section">
+
+  <!-- Full-viewport canvas (position:fixed in CSS) -->
+  <canvas id="seq-canvas"></canvas>
+
+  <!-- Overlays on top of the canvas -->
+  <div class="ov-wrap">
+
+    <!-- 0-15%: Hero Title -->
+    <div id="ov-hero" class="ov-hero">
+      <div class="author-hero-pill">
+        <span class="dot-live"></span> 3D Visual Experience by Lavish
+      </div>
+      <div class="ov-tag">
+        <i data-lucide="sparkles" style="width:14px;height:14px"></i>
+        All-New M4 Architecture
+      </div>
+      <h1 class="ov-title">Mac mini</h1>
+      <p class="ov-sub">Size down. Power up.</p>
+      <div class="scroll-pill">
+        <div class="mouse-icon"></div>
+        Scroll to explore inside
+      </div>
+    </div>
+
+    <!-- 20-45%: Enclosure -->
+    <div id="ov-enclosure" class="story">
+      <div class="story-badge">Precision Enclosure</div>
+      <h2>Shrunk to fit.<br>Built to conquer.</h2>
+      <p>At just 5 × 5 inches, the all-new unibody is less than half the footprint. Milled from 100% recycled aluminum.</p>
+      <div class="story-specs">
+        <div class="sp"><strong>5 × 5 in</strong>Ultra-compact</div>
+        <div class="sp"><strong>1.5 lbs</strong>Featherweight</div>
+      </div>
+    </div>
+
+    <!-- 50-75%: Silicon -->
+    <div id="ov-silicon" class="story">
+      <div class="story-badge">Apple Silicon Core</div>
+      <h2>Silicon that defies<br>physics.</h2>
+      <p>Second-generation 3nm architecture with hardware ray tracing and built-in Apple Intelligence.</p>
+      <div class="story-specs">
+        <div class="sp"><strong>14-Core</strong>Pro CPU</div>
+        <div class="sp"><strong>20-Core</strong>Pro GPU</div>
+        <div class="sp"><strong>273 GB/s</strong>Bandwidth</div>
+      </div>
+    </div>
+
+    <!-- 80-98%: Thermal -->
+    <div id="ov-thermal" class="story">
+      <div class="story-badge">Thermal Aerodynamics</div>
+      <h2>Ice cool.<br>Near silent.</h2>
+      <p>Dual centrifugal impellers draw cool air through the perimeter footpad, circulating across the copper heatsink.</p>
+      <div class="story-specs">
+        <div class="sp"><strong>0 dB</strong>Typical tasks</div>
+        <div class="sp"><strong>Dual-Path</strong>Airflow</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     3D INTERACTIVE THREE.JS STUDIO
+     ═══════════════════════════════════════════════ -->
+<section id="studio" class="studio">
+  <div class="container">
+    <div class="eyebrow">3D Interactive Experience</div>
+    <h2 class="sec-title">Explore Mac mini in 3D.</h2>
+    <p class="sec-desc">Rotate 360°, switch finishes, inspect ports, and explore internals.</p>
+
+    <div id="canvas-3d-wrapper" class="studio-box">
+      <canvas id="canvas-3d"></canvas>
+
+      <div class="s-top">
+        <div class="s-badge"><span class="dot-g"></span> Three.js WebGL · Lavish Studio</div>
+        <div class="s-tools">
+          <button id="btn-lighting-toggle" class="s-btn"><i data-lucide="sun" style="width:13px;height:13px"></i><span>Lighting: Softbox</span></button>
+          <button id="btn-explode-toggle" class="s-btn"><i data-lucide="layers" style="width:13px;height:13px"></i><span>Explode View</span></button>
+        </div>
+      </div>
+
+      <div class="s-bot">
+        <div class="finish-row">
+          <span class="finish-lbl">Finish:</span>
+          <div class="finish-dots">
+            <button class="fdot silver active" data-finish="silver" title="Silver"></button>
+            <button class="fdot space-black" data-finish="space-black" title="Space Black"></button>
+            <button class="fdot starlight" data-finish="starlight" title="Starlight"></button>
+          </div>
+        </div>
+        <div class="cam-row">
+          <button class="cam-btn active" data-preset="studio">360°</button>
+          <button class="cam-btn" data-preset="front">Front</button>
+          <button class="cam-btn" data-preset="rear">Rear</button>
+          <button class="cam-btn" data-preset="top">Top</button>
+          <button class="cam-btn" data-preset="exploded">Exploded</button>
+        </div>
+      </div>
+
+      <div id="studio-hotspot-card" class="hs-card">
+        <button id="hotspot-card-close" class="hs-close">✕</button>
+        <div class="hs-badge">Component Detail</div>
+        <h3 class="hs-title">Front Ports</h3>
+        <p class="hs-desc">Dual USB-C at 10Gb/s and 3.5mm audio jack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BENTO GRID
+     ═══════════════════════════════════════════════ -->
+<section id="bento" class="bento">
+  <div class="container">
+    <div class="eyebrow">Silicon & Engineering</div>
+    <h2 class="sec-title">Engineered to exceed.</h2>
+    <p class="sec-desc">More power per square inch than any desktop Mac before it.</p>
+
+    <div class="grid">
+      <!-- Interactive 3D Apple Silicon Card (span 6) -->
+      <div class="card c6 chip-card">
+        <div>
+          <div class="card-badge"><span class="dot-g"></span> Interactive 3D Silicon</div>
+          <h3 class="card-title t3d-pop">M4 Pro Architecture.</h3>
+          <p class="card-desc">Drag to inspect the 3nm monolithic die, LPDDR5X memory, and 273GB/s unified interconnect.</p>
+        </div>
+        <div id="chip-3d-canvas-wrap" class="chip-3d-box"></div>
+        <div class="chip-stats-row">
+          <div><strong>3nm</strong>Process</div>
+          <div><strong>14-Core</strong>Pro CPU</div>
+          <div><strong>20-Core</strong>Pro GPU</div>
+          <div><strong>16-Core</strong>Neural</div>
+        </div>
+      </div>
+
+      <!-- Benchmark (span 6) -->
+      <div class="card c6">
+        <div>
+          <div class="card-badge">Performance Matrix</div>
+          <h3 class="card-title t3d-pop">Massive leaps in speed.</h3>
+          <p class="card-desc">See how M4 and M4 Pro crush Intel and previous Apple Silicon.</p>
+        </div>
+        <div style="margin-top:22px">
+          <div class="bench-row">
+            <button class="bench-btn active" data-test="cpu">CPU</button>
+            <button class="bench-btn" data-test="gpu">GPU</button>
+            <button class="bench-btn" data-test="neural">AI / Neural</button>
+          </div>
+          <div class="bar-row"><div class="bar-meta"><span class="bar-lbl">M4 Pro (14-core / 20-core GPU)</span><span id="bv-m4p" class="bar-val">2.4x</span></div><div class="bar-track"><div id="bf-m4p" class="bar-fill fill-blue" style="width:96%"></div></div></div>
+          <div class="bar-row"><div class="bar-meta"><span class="bar-lbl">M4 (10-core / 10-core GPU)</span><span id="bv-m4" class="bar-val">1.8x</span></div><div class="bar-track"><div id="bf-m4" class="bar-fill fill-green" style="width:74%"></div></div></div>
+          <div class="bar-row"><div class="bar-meta"><span id="bl-base" class="bar-lbl">Intel Core i7 Mac mini</span><span id="bv-base" class="bar-val">1.0x</span></div><div class="bar-track"><div id="bf-base" class="bar-fill fill-grey" style="width:40%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Engineering by Lavish (span 6) -->
+      <div class="card c6 creator-card">
+        <div>
+          <div class="card-badge"><span class="dot-g"></span> Visual Engineering</div>
+          <h3 class="card-title t3d-pop">Crafted by Lavish.</h3>
+          <p class="card-desc">Brought to life with procedural 3D WebGL architecture, 1:1 scroll synchrony, tactile physics, and Apple Cupertino industrial standards.</p>
+        </div>
+        <div class="creator-metrics">
+          <div class="cm-item">
+            <div class="cm-val">100%</div>
+            <div class="cm-lbl">Procedural 3D WebGL</div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-val">40</div>
+            <div class="cm-lbl">Scroll Teardown Frames</div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-val">60+ FPS</div>
+            <div class="cm-lbl">Hardware Rendered</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Front Ports (span 4) -->
+      <div class="card c4">
+        <div><div class="card-badge">Ergonomic Design</div><h3 class="card-title">Front ports.<br>Finally.</h3><p class="card-desc">No more reaching behind.</p></div>
+        <div style="margin-top:18px">
+          <div class="port-item"><div class="port-icon"><i data-lucide="zap" style="width:18px;height:18px"></i></div><div><div class="port-title">2× USB-C</div><div class="port-sub">10Gb/s data</div></div></div>
+          <div class="port-item"><div class="port-icon"><i data-lucide="headphones" style="width:18px;height:18px"></i></div><div><div class="port-title">3.5 mm Audio</div><div class="port-sub">High-impedance</div></div></div>
+        </div>
+      </div>
+
+      <!-- Memory (span 4) -->
+      <div class="card c4">
+        <div><div class="card-badge">Unified Architecture</div><h3 class="card-title">Up to 64GB</h3><p class="card-desc">Massive shared unified memory.</p></div>
+        <div class="big-stat">273 <span class="stat-unit">GB/s</span></div>
+        <p style="font-size:13px;color:var(--t2)">Peak bandwidth on M4 Pro.</p>
+      </div>
+
+      <!-- Carbon (span 4) -->
+      <div class="card c4">
+        <div><div class="card-badge">Environment</div><h3 class="card-title">First carbon neutral Mac.</h3><p class="card-desc">100% recycled aluminum.</p></div>
+        <div class="big-stat" style="color:#34c759">-80%</div>
+        <p style="font-size:13px;color:var(--t2)">Lifecycle emissions.</p>
+      </div>
+
+      <!-- Display (span 4) -->
+      <div class="card c4">
+        <div><div class="card-badge">Display Engine</div><h3 class="card-title">Up to 3 Displays.</h3><p class="card-desc">Three 6K displays at 60Hz.</p></div>
+        <div class="big-stat">3× <span class="stat-unit">6K</span></div>
+      </div>
+
+      <!-- Thunderbolt (span 12) -->
+      <div class="card c12" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+        <div style="max-width:500px"><div class="card-badge">Thunderbolt 5</div><h3 class="card-title">120Gb/s transfer.</h3><p class="card-desc">3× the bandwidth of Thunderbolt 4.</p></div>
+        <div style="display:flex;gap:28px;align-items:center">
+          <div style="text-align:center"><div style="font-size:13px;color:var(--t2);margin-bottom:4px">TB4</div><div style="font-size:30px;font-weight:700;color:var(--t3)">40 Gb/s</div></div>
+          <div style="width:1px;height:44px;background:var(--b1)"></div>
+          <div style="text-align:center"><div style="font-size:13px;color:var(--blue);font-weight:600;margin-bottom:4px">TB5 (M4 Pro)</div><div style="font-size:42px;font-weight:700">120 Gb/s</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONFIGURATOR
+     ═══════════════════════════════════════════════ -->
+<section id="configure" class="config-sec">
+  <div class="container">
+    <div class="eyebrow">Custom Configuration</div>
+    <h2 class="sec-title">Configure your Mac mini.</h2>
+    <p class="sec-desc">Chip, memory, storage, networking.</p>
+
+    <div class="model-tabs"><div class="model-tabs-inner">
+      <button class="bench-btn model-tab-btn active" data-model="m4">M4 — From $599</button>
+      <button class="bench-btn model-tab-btn" data-model="m4-pro">M4 Pro — From $1,399</button>
+    </div></div>
+
+    <div class="config-grid">
+      <div class="config-left">
+        <div id="config-badge" class="cfg-badge">Standard</div>
+        <h3 id="config-name" class="cfg-name t3d-pop">Mac mini with M4</h3>
+        <div class="cfg-finish-row">
+          <span class="finish-lbl">3D Finish:</span>
+          <div class="finish-dots">
+            <button class="fdot silver active cfg-fdot" data-finish="silver" title="Silver"></button>
+            <button class="fdot space-black cfg-fdot" data-finish="space-black" title="Space Black"></button>
+            <button class="fdot starlight cfg-fdot" data-finish="starlight" title="Starlight"></button>
+          </div>
+        </div>
+        <div id="config-3d-wrap" class="cfg-3d-box"></div>
+        <div class="cfg-specs">
+          <div class="cfg-row"><span>Processor</span><strong id="summary-chip">M4 10-core CPU / 10-core GPU</strong></div>
+          <div class="cfg-row"><span>Memory</span><strong id="summary-memory">16GB</strong></div>
+          <div class="cfg-row"><span>Storage</span><strong id="summary-storage">256GB SSD</strong></div>
+          <div class="cfg-row"><span>Ethernet</span><strong id="summary-ethernet">Gigabit</strong></div>
+        </div>
+        <div class="cfg-price-box">
+          <div id="config-total-price" class="cfg-price">$599.00</div>
+          <div id="config-monthly-price" class="cfg-monthly">or $49.91/mo. for 12 mo.*</div>
+        </div>
+        <button id="btn-add-to-bag" class="bag-btn"><i data-lucide="shopping-bag" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px"></i>Add to Bag</button>
+      </div>
+      <div id="config-options-column" class="config-right">
+        <div><h4 class="grp-title">1. Apple Silicon</h4><div id="chip-options-container" class="opt-list"></div></div>
+        <div><h4 class="grp-title">2. Unified Memory</h4><div id="memory-options-container" class="opt-list"></div></div>
+        <div><h4 class="grp-title">3. SSD Storage</h4><div id="storage-options-container" class="opt-list"></div></div>
+        <div><h4 class="grp-title">4. Networking</h4><div id="ethernet-options-container" class="opt-list"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs" class="specs-sec">
+  <div class="container">
+    <div class="eyebrow">Specifications</div>
+    <h2 class="sec-title">Technical Specifications</h2>
+    <div class="specs-matrix">
+      <div class="specs-row"><div class="specs-cat">Processor</div><div class="specs-det"><p><strong>M4:</strong> 10-core CPU, 10-core GPU, 16-core Neural Engine, 120GB/s bandwidth.</p><p style="margin-top:6px"><strong>M4 Pro:</strong> Up to 14-core CPU, up to 20-core GPU, 273GB/s bandwidth.</p></div></div>
+      <div class="specs-row"><div class="specs-cat">Video</div><div class="specs-det"><ul><li><strong>M4:</strong> Up to three displays — two 6K@60Hz + one 4K@60Hz HDMI.</li><li><strong>M4 Pro:</strong> Three 6K@60Hz, or one 8K@60Hz over HDMI 2.1.</li></ul></div></div>
+      <div class="specs-row"><div class="specs-cat">Connections</div><div class="specs-det"><p><strong>Front:</strong> 2× USB-C (10Gb/s), 3.5mm headphone jack.</p><p style="margin-top:6px"><strong>Back:</strong> 3× Thunderbolt 4/5, HDMI 2.1, Gigabit or 10Gb Ethernet, power.</p></div></div>
+      <div class="specs-row"><div class="specs-cat">Size & Weight</div><div class="specs-det"><p>5.0 × 5.0 × 2.0 inches (12.7 × 12.7 × 5.0 cm)</p><p>M4: 1.48 lbs (0.67 kg) · M4 Pro: 1.61 lbs (0.73 kg)</p></div></div>
+      <div class="specs-row"><div class="specs-cat">Wireless</div><div class="specs-det"><p>Wi-Fi 6E (802.11ax) · Bluetooth 5.3</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="checkout-modal" class="modal-bg">
+  <div class="modal-box">
+    <div class="modal-head"><h3 class="modal-title">Review Your Bag</h3><button id="modal-close-btn" class="modal-x">✕</button></div>
+    <div id="modal-order-details" class="order-sum"></div>
+    <div style="font-size:12px;color:var(--t3);margin-bottom:18px;line-height:1.5">Delivery: <strong>2 Business Days</strong> · Free shipping · 1-Year Warranty.</div>
+    <button class="checkout-btn" onclick="alert('Demo: Order submitted!')">Check Out with Apple Pay</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-creator-banner">
+      <div class="fcb-inner">
+        <div class="fcb-badge"><span class="dot-live"></span> Visual Systems</div>
+        <div class="fcb-text">Mac mini 3D Web Experience — Designed, Modeled, and Built by <strong>Lavish</strong></div>
+      </div>
+    </div>
+    <div class="footer-notes">
+      <p>* Apple Card Monthly Installments (ACMI) is a 0% APR payment option available at checkout in the U.S.</p>
+      <p>Performance compared against Intel Core i7 Mac mini and previous Apple Silicon systems.</p>
+    </div>
+    <div class="footer-bot">
+      <div>© 2026 Apple Inc. All rights reserved. · Experience Engineered by Lavish</div>
+      <ul class="footer-links"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Legal</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="./src/scripts/main.js"></script>
+</body>
+</html>
